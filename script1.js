@@ -54,5 +54,43 @@ document.getElementById("removeLastTask").addEventListener('click', function(){
     item.remove();
 });
 
+//challenge6
+document.getElementById("clickMeButton").addEventListener('mouseover', function(){
+  document.getElementById("clickMeButton").style.cursor = "pointer";
+  document.getElementById("clickMeButton").addEventListener('click', function(){
+    alert("This is an alert message");
+})});
+
+//challenge7
+document.getElementById("teaList").addEventListener('click', function(event){
+  //the event in the parameter stores the current event's context.
+  //like a click or a hover or any other thing
+  //console.log(event); to see the type of event selected
+  /*in event properties a property known as target shows with respect to which element did the event take place. 
+  That property can be used to access the affected element*/
+  if(event.target && event.target.matches(".teaItem")){ //to check if an event did take place. And optionally check if the selected item matches the 
+    //the type tea, in case there are more than one type of item in the list 
+      alert("You have selected: " + event.target.textContent);
+  }
+});
+
+//challenge8
+document.getElementById("feedbackForm").addEventListener("submit", function (event) {
+  event.preventDefault();   //without this the browser immediately reloads the page and sends the data to the server. This stops us from handling the data
+  let user_input = document.getElementById("feedbackInput").value;  //.value for input boxes and .innerHTML for paragraphs and all
+  //console.log(user_input); why is it grabbing the input insted of the label?
+  document.getElementById("feedbackDisplay").innerHTML = `Feedback is: ${user_input}`;
+});
+
+//challenge9
+document.addEventListener('DOMContentLoaded', function(event){
+  document.getElementById("domStatus").textContent = "DOM fully loaded."
+})
+
+//challenge10
+document.getElementById("toggleHighlight").addEventListener('click', function(){
+  document.getElementById("descriptionText").classList.toggle("highlight");
+});
+
 
 
